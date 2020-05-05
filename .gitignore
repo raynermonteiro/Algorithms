@@ -1,3 +1,4 @@
 .idea
 Algorithms.iml
 target
+*.DS_Store

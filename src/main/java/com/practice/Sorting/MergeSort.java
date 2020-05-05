@@ -97,10 +97,10 @@ public class MergeSort {
                     array[k + 1] = array[k];
                 }
 
+                array[low] = Temp;
                 System.out.println(Temp + " is stored in index " + low);
                 printHorzArray(-1, -1, array, 49);
 
-                array[low] = Temp;
                 low++;
                 end_low++;
                 start_high++;
