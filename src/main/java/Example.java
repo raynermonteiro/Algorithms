@@ -12,6 +12,9 @@ public class Example {
         arrayList.add("E");
         System.out.println(arrayList);
 
+        Stack<Character> charStack = new Stack<>();
+
+
         List<String> list = new ArrayList<String>();
         list.add("A");
         list.add("B");
