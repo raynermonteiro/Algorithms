@@ -1,9 +1,12 @@
 package hackerrank;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class StockPrice {
     public static int stock(int arr[]){
+
+        ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<Integer, Integer>();
         int tempArr[] = new int[arr.length];
         int n = arr.length;
         int maxPrice = 0;

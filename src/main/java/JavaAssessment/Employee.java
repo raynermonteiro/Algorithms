@@ -1,6 +1,8 @@
+package JavaAssessment;
+
 import java.util.*;
 
-public class Example {
+public class Employee {
     public static void main(String[] args) {
         ArrayList<String> arrayList = new ArrayList<String>();
         arrayList.add("A");
@@ -12,9 +14,6 @@ public class Example {
         arrayList.add("E");
         System.out.println(arrayList);
 
-        Stack<Character> charStack = new Stack<>();
-
-
         List<String> list = new ArrayList<String>();
         list.add("A");
         list.add("B");
@@ -22,24 +21,21 @@ public class Example {
 
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         Map<Emp, Integer> hashMap = new HashMap<Emp, Integer>();
-        TreeMap<Emp, Integer> treeMap = new TreeMap<Emp, Integer>();
 
         Emp emp1 = new Emp(1);
         Emp emp2 = new Emp(2);
         hashMap.put(emp1, 1);
-        hashMap.put(emp2, 1);
+        hashMap.put(emp2, 2);
         System.out.println(hashMap.size());
-
-
-
+        emp2 = new Emp(4);
+        hashMap.put(emp2, 3);
+        System.out.println(hashMap.size());
 
         Integer int1 = new Integer(1);
         Integer int2 = new Integer(1);
         map.put(int1,1);
         map.put(int2,1);
         System.out.println(map.size());
-
-        SortedSet<Integer> st = new TreeSet<>();
     }
 }
 class Emp{

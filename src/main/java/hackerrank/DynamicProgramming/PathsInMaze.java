@@ -1,4 +1,4 @@
-package hackerrank.medium;
+package hackerrank.DynamicProgramming;
 
 public class PathsInMaze {
     static int countPaths(int [][] maze) {
