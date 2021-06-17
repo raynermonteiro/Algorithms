@@ -3,13 +3,13 @@ https://www.hackerrank.com/challenges/common-child/editorial
 
 https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
  */
-package hackerrank.medium;
+package hackerrank.DynamicProgramming;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import com.practice.common.ArrayUtil;
 
-public class CommonChild {
+import static com.practice.common.ArrayUtil.printArray;
+
+public class LongestCommonSubsequence {
     static int commonChild(String a, String b) {
         int[][] C = new int[a.length()+1][b.length()+1];
 
@@ -22,25 +22,31 @@ public class CommonChild {
                 }
             }
             System.out.println("After Pass--------:--------: "+row);
-            printArray(C, a, b);
+            ArrayUtil.printArray(C, a, b);
         }
+        printLongestCommonSubSeq(C, a, b);
         return C[a.length()][b.length()];
     }
 
-    static void printArray(int[][] a, String s1, String s2) {
-        for(int row=0;row<a.length;row++){
-            for(int col=0;col<a.length;col++) {
-                if(row==0 && col>0){
-                    System.out.print(s2.charAt(col-1)+ " ");
-                } else if(col==0 && row>0){
-                    System.out.print(s1.charAt(row-1)+ " ");
-                }else {
-                    System.out.print(a[row][col]+ " ");
-                }
+
+    static void printLongestCommonSubSeq(int[][] a, String s1, String s2) {
+        int row = s1.length();
+        int col = s2.length();
+        while (row > 0 & col > 0) {
+            if (s1.charAt(row-1) == s2.charAt(col-1)) {
+                System.out.print(s1.charAt(row-1));
+                row--;
+                col--;
+            } else {
+                if(a[row -1][col] > a[row][col -1]) {
+                    row--;
+                } else
+                    col--;
             }
-            System.out.println();
         }
+        System.out.println();
     }
+
 
     public static void main(String args[]) {
         String s1="CRATERED";

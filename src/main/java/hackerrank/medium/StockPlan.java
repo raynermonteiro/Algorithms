@@ -3,7 +3,8 @@ https://www.geeksforgeeks.org/the-stock-span-problem/
  */
 package hackerrank.medium;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Stack;
 
 public class StockPlan {
     static int[] calculateStockPlan(int[] price) {

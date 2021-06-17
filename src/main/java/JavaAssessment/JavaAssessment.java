@@ -1,11 +1,5 @@
 package JavaAssessment;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class JavaAssessment
 {
     private int anInt = 0;

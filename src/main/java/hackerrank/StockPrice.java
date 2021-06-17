@@ -1,35 +1,20 @@
 package hackerrank;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class StockPrice {
     public static int stock(int arr[]){
 
-        ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<Integer, Integer>();
-        int tempArr[] = new int[arr.length];
         int n = arr.length;
-        int maxPrice = 0;
-        int stockCnt=0;
-        for (int i = 0; i < n-1; i++ ){
-            if(arr[i]<arr[i+1]) {
-                tempArr[i]--;
-                stockCnt++;
-            } else if(arr[i]==arr[i+1]) {
-                tempArr[i]=0;
-            } else {
-                tempArr[i]=stockCnt;
-                stockCnt=0;
+        int maxPriceSofar=arr[n-1];
+        int totalPrice = 0;
+        for(int i=n-2;i>=0;i--) {
+            if(arr[i]> maxPriceSofar) {
+                maxPriceSofar = arr[i];
             }
+            totalPrice = totalPrice + maxPriceSofar - arr[i];
         }
-        if(arr[n-1]>=arr[n-2]) {
-            tempArr[n-1]=stockCnt;
-        }
-        for(int i=0;i<n;i++) {
-            maxPrice += arr[i]*tempArr[i];
-        }
-        System.out.println(Arrays.toString(tempArr));
-        return maxPrice;
+        return totalPrice;
     }
     public static void main(String args[]) {
 

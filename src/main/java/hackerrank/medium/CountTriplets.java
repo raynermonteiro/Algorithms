@@ -3,9 +3,7 @@
  */
 package hackerrank.medium;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -37,21 +35,31 @@ public class CountTriplets {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        String[] nr = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+        File files = new File("src/main/resources/CountingTriplets");
+        if (files.exists()) {
+            for(File file: files.listFiles()){
+                System.out.println("---------File Name:"+file.getName());
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-        int n = Integer.parseInt(nr[0]);
+                    String[] nr = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
-        long r = Long.parseLong(nr[1]);
+                    int n = Integer.parseInt(nr[0]);
 
-        List<Long> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-                .map(Long::parseLong)
-                .collect(toList());
+                    long r = Long.parseLong(nr[1]);
 
-        long ans = countTriplets(arr, r);
-        System.out.println(ans);
+                    List<Long> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                            .map(Long::parseLong)
+                            .collect(toList());
 
-        bufferedReader.close();
+                    long ans = countTriplets(arr, r);
+                    System.out.println(ans);
+                    bufferedReader.close();
+                }catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

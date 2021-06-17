@@ -42,11 +42,7 @@ public class MinDiffSubsetSum {
         printArray(dpArray);
 
         //Set intial value as true for first element at the right sum position.
-        for(int col = 0;col<=sum;col++){
-            if(col == inputArr[0]) {
-                dpArray[0][col] = true;
-            }
-        }
+        dpArray[0][inputArr[0]] = true;
         printArray(dpArray);
 
         for(int row=1;row<n;row++) {

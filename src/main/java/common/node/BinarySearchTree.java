@@ -1,22 +1,24 @@
 package common.node;
 
+/* Class containing left
+and right child of current node
+* and key value*/
+class Node {
+    int key;
+    Node left, right;
+
+    public Node(int item)
+    {
+        key = item;
+        left = right = null;
+    }
+}
+
 // Java program to demonstrate
 // delete operation in binary
 // search tree
 class BinarySearchTree {
-    /* Class containing left
-    and right child of current node
-    * and key value*/
-    class Node {
-        int key;
-        Node left, right;
 
-        public Node(int item)
-        {
-            key = item;
-            left = right = null;
-        }
-    }
     // Root of BST
     Node root;
     // Constructor
@@ -31,7 +33,7 @@ class BinarySearchTree {
     {
         /* Base Case: If the tree is empty */
         if (root == null)
-            return root;
+            return null;
 
         /* Otherwise, recur down the tree */
         if (key < root.key)
@@ -61,13 +63,13 @@ class BinarySearchTree {
 
     int minValue(Node root)
     {
-        int minv = root.key;
+        int minValue = root.key;
         while (root.left != null)
         {
-            minv = root.left.key;
+            minValue = root.left.key;
             root = root.left;
         }
-        return minv;
+        return minValue;
     }
 
     // This method mainly calls insertRec()
@@ -113,10 +115,10 @@ class BinarySearchTree {
         BinarySearchTree tree = new BinarySearchTree();
 
 		/* Let us create following BST
-			50
-		/	 \
-		30	 70
-		/ \ / \
+			 50
+		  /	   \
+		30	    70
+		/ \    / \
 		20 40 60 80 */
         tree.insert(50);
         tree.insert(30);
@@ -132,20 +134,17 @@ class BinarySearchTree {
 
         System.out.println("\nDelete 20");
         tree.deleteKey(20);
-        System.out.println(
-                "Inorder traversal of the modified tree");
+        System.out.println("Inorder traversal of the modified tree");
         tree.inorder();
 
         System.out.println("\nDelete 30");
         tree.deleteKey(30);
-        System.out.println(
-                "Inorder traversal of the modified tree");
+        System.out.println("Inorder traversal of the modified tree");
         tree.inorder();
 
         System.out.println("\nDelete 50");
         tree.deleteKey(50);
-        System.out.println(
-                "Inorder traversal of the modified tree");
+        System.out.println("Inorder traversal of the modified tree");
         tree.inorder();
     }
 }

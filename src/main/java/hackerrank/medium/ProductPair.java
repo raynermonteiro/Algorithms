@@ -3,7 +3,9 @@ https://leetcode.com/discuss/interview-question/536834/Groupon-or-SDE1-or-Code-P
  */
 package hackerrank.medium;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class ProductPair {
 
